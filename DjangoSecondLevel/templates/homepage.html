@@ -13,6 +13,12 @@
     {% for giornalista in giornalisti %}
        <p>{{ giornalista.nome }} {{ giornalista.cognome }}</p>
        <h4>Articoli:</h4>
+       {% comment %} 
+       giornalista.articoli.all specifica la relazione inversa (articoli)
+       che abbiamo definito nel models.py, cioè sapere gli Articoli
+       scritti da un determinato Giornalista. Il tag empty serve a gestire
+       le righe vuote, cioè giornalisti che non hanno articoli. 
+       {% endcomment %}
        {% for articolo in giornalista.articoli.all %}
        <p>{{ articolo.titolo }}</p>
     {% empty %}
