@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>BENVENUTI NELLA HOME PAGE!</h1>
+    <hr>
+    <h4>Giornalisti:</h4>
+    {% for giornalista in giornalisti %}
+       <p>{{ giornalista.nome }} {{ giornalista.cognome }}</p>
+       <h4>Articoli:</h4>
+       {% for articolo in giornalista.articoli.all %}
+       <p>{{ articolo.titolo }}</p>
+    {% empty %}
+       <p>{{giornalista.nome}} non ha scritto alcun articolo!</p>
+       {% endfor %}
+       <hr>
+    {% endfor %}
+
+</body>
+</html>
