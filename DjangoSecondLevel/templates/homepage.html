@@ -20,7 +20,7 @@
        le righe vuote, cioè giornalisti che non hanno articoli. 
        {% endcomment %}
        {% for articolo in giornalista.articoli.all %}
-       <p>{{ articolo.titolo }}</p>
+       <p><a href="{{ articolo.get_absolute_url }} ">{{ articolo.titolo }}</a></p>
     {% empty %}
        <p>{{giornalista.nome}} non ha scritto alcun articolo!</p>
        {% endfor %}
