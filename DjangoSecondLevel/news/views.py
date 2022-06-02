@@ -18,3 +18,19 @@ def articoloDetailView(request,pk):
     articolo = get_object_or_404(Articolo,pk=pk)
     context={'articolo':articolo}
     return render(request,'articoloDetail.html',context)
+
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+
+class ArticoloDetailViewCB(DetailView):
+    model = Articolo
+    template_name = 'articoloDetail.html'
+    
+class ArticoloListView(ListView):
+    model = Articolo
+    template_name = 'listaArticoli.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['articoli'] = Articolo.objects.all()
+        return context

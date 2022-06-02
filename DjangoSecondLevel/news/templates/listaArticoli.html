@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>Articoli:</h4>
+{% for articolo in articoli %}
+    <p><strong>Titolo:</strong> <a href="{{ articolo.get_absolute_url }} ">{{ articolo.titolo }}</a></p>
+    <p><strong>Contenuto:</strong>{{ articolo.contenuto }}</a></p>
+    <p><strong>Autore:</strong>{{ articolo.giornalista }}</a></p>
+{% endfor %}
+{% endblock content %}
+<hr>
